@@ -20,6 +20,24 @@ func Hello(name string) (string, error) {
 	return message, nil
 }
 
+// Hello retorna um mapa que associa cada uma das pessoas pessoa nomeada.
+// com uma mensagem de saudação.
+func Hellos(names []string) (map[string]string, error) {
+	// Um mapa para associar nomes a mensagens.
+	messages := make(map[string]string)
+	// Percorre a fatia de nomes recebida, chamando
+	// a função Hello para obter uma mensagem para cada nome.
+	for _, name := range names {
+		message, err := Hello(name)
+		if err != nil {
+			return nil, err
+		}
+		// No mapa, associe a mensagem recuperada ao nome.
+		messages[name] = message
+	}
+	return messages, nil
+}
+
 // init define valores iniciais para variáveis usadas na função.
 func init() {
 	rand.Seed(time.Now().UnixNano())

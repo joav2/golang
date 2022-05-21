@@ -14,8 +14,11 @@ func main() {
 	log.SetPrefix("greetings: ")
 	log.SetFlags(0)
 
+	// Uma fatia de nomes.
+	names := []string{"Lucieny", "João Vitor", "Darrin"}
+
 	// Solicita uma mensagem de saudação.
-	message, err := greetings.Hello("João Vitor")
+	message, err := greetings.Hellos(names)
 	// Se um erro foi retornado, imprima-o no console e
 	// saia do programa.
 	if err != nil {
